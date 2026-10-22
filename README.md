@@ -4,13 +4,13 @@
 
 | Nama | NIM |
 |---|---|
-| Denzel Danieks | 5025241228 |
+| Denzel Daniels | 5025241228 |
 | Mahirah Yasmin Aulia Mawahib | 5025241095 |
 
 **Mata Kuliah:** Pemrograman Berbasis Kerangka Kerja - C  
 **Dosen Pengampu:** Fajar Baskoro
 
-![infografis](img\B24.png)
+![infografis](img/B24.png)
 
 LENTERA (*Layanan Elektronik Terpadu Reservasi Laboratorium*) adalah aplikasi desktop berbasis Windows yang dirancang untuk mempermudah proses pemesanan dan pengelolaan reservasi laboratorium di lingkungan institusi pendidikan.
 
@@ -132,10 +132,10 @@ Sistem juga dirancang untuk menggunakan query berparameter serta penanganan kesa
 
 ## 📄 Dokumentasi
 
-![foto](img\photo1.jpg)
-![foto](img\photo2.jpg)
-![foto](img\photo3.jpg)
-![foto](img\photo1.jpg)
+![foto](img/photo1.jpg)
+![foto](img/photo2.jpg)
+![foto](img/photo3.jpg)
+![foto](img/photo1.jpg)
 
 ---
 
