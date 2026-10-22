@@ -1,0 +1,13 @@
+## Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio / VS Code temp files
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
