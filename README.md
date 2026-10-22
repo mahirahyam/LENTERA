@@ -10,6 +10,8 @@
 **Mata Kuliah:** Pemrograman Berbasis Kerangka Kerja - C  
 **Dosen Pengampu:** Fajar Baskoro
 
+![infografis](img\B24.png)
+
 LENTERA (*Layanan Elektronik Terpadu Reservasi Laboratorium*) adalah aplikasi desktop berbasis Windows yang dirancang untuk mempermudah proses pemesanan dan pengelolaan reservasi laboratorium di lingkungan institusi pendidikan.
 
 Aplikasi ini mengintegrasikan proses pengajuan booking, pemeriksaan ketersediaan laboratorium, persetujuan reservasi, pengelolaan data laboratorium, serta pemantauan penggunaan laboratorium dalam satu sistem.
@@ -129,6 +131,11 @@ Sistem dirancang untuk menggunakan database sebagai sumber data utama. Data book
 Sistem juga dirancang untuk menggunakan query berparameter serta penanganan kesalahan database agar data lebih aman dan aplikasi lebih andal.
 
 ## 📄 Dokumentasi
+
+![foto](img\photo1.jpg)
+![foto](img\photo2.jpg)
+![foto](img\photo3.jpg)
+![foto](img\photo1.jpg)
 
 ---
 
