@@ -15,5 +15,8 @@ namespace LENTERA.WPF.Models
         public int JumlahPeserta { get; set; } = 1;
         public string Status { get; set; } = "Menunggu";
         public string AlasanPenolakan { get; set; } = string.Empty;
+
+        /// <summary>Teks "08:00 - 10:00" untuk ditampilkan di DataGrid.</summary>
+        public string JamText => $"{JamMulai:hh\\:mm} - {JamSelesai:hh\\:mm}";
     }
 }

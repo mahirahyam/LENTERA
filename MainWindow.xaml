@@ -18,6 +18,9 @@
         <DataTemplate DataType="{x:Type vm:BookingViewModel}">
             <views:BookingView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ReservationViewModel}">
+            <views:ReservationView/>
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -36,6 +39,7 @@
 
                     <TextBlock Text="MENU UTAMA" FontSize="11" FontWeight="Bold" Foreground="{DynamicResource SubTextColor}" Margin="8,0,0,12"/>
                     <Button Content="Dashboard" Command="{Binding NavigateDashboardCommand}" Style="{StaticResource NavButton}" Margin="0,0,0,6"/>
+                    <Button Content="Reservasi" Command="{Binding NavigateReservationCommand}" Style="{StaticResource NavButton}" Margin="0,0,0,6"/>
                     <Button Content="Kelola Booking" Command="{Binding NavigateBookingCommand}" Style="{StaticResource NavButton}" Margin="0,0,0,6"/>
                 </StackPanel>
 

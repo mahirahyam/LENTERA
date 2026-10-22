@@ -1,37 +1,76 @@
+using LENTERA.WPF.Models;
+using LENTERA.WPF.Repositories;
+using System;
 using System.Collections.ObjectModel;
-
-namespace LENTERA.WPF.Models
-{
-    public class LabUsageStat
-    {
-        public string NamaLab { get; set; } = string.Empty;
-        public int TotalBooking { get; set; }
-        public double BarHeight => TotalBooking * 15;
-    }
-}
+using System.Windows;
 
 namespace LENTERA.WPF.ViewModels
 {
-    using LENTERA.WPF.Models;
-
     public class DashboardViewModel : BaseViewModel
     {
-        public int TotalLabAktif { get; set; } = 8;
-        public int BookingHariIni { get; set; } = 5;
-        public int MenungguPersetujuan { get; set; } = 3;
-        public int TotalPengguna { get; set; } = 142;
+        private readonly IBookingRepository _repository;
 
-        public ObservableCollection<LabUsageStat> GrafikPenggunaan { get; set; }
-
-        public DashboardViewModel()
+        private int _totalLabAktif;
+        public int TotalLabAktif
         {
-            GrafikPenggunaan = new ObservableCollection<LabUsageStat>
+            get => _totalLabAktif;
+            set { _totalLabAktif = value; OnPropertyChanged(); }
+        }
+
+        private int _bookingHariIni;
+        public int BookingHariIni
+        {
+            get => _bookingHariIni;
+            set { _bookingHariIni = value; OnPropertyChanged(); }
+        }
+
+        private int _menungguPersetujuan;
+        public int MenungguPersetujuan
+        {
+            get => _menungguPersetujuan;
+            set { _menungguPersetujuan = value; OnPropertyChanged(); }
+        }
+
+        private int _totalPengguna;
+        public int TotalPengguna
+        {
+            get => _totalPengguna;
+            set { _totalPengguna = value; OnPropertyChanged(); }
+        }
+
+        public ObservableCollection<LabUsageStat> GrafikPenggunaan { get; } = new();
+
+        public DashboardViewModel() : this(new BookingRepository())
+        {
+        }
+
+        public DashboardViewModel(IBookingRepository repository)
+        {
+            _repository = repository;
+            Refresh();
+        }
+
+        /// <summary>Muat ulang seluruh statistik dari database. Dipanggil setiap kali halaman Dashboard dibuka.</summary>
+        public void Refresh()
+        {
+            try
             {
-                new LabUsageStat { NamaLab = "Lab Pemrograman", TotalBooking = 12 },
-                new LabUsageStat { NamaLab = "Lab Jaringan", TotalBooking = 8 },
-                new LabUsageStat { NamaLab = "Lab Multimedia", TotalBooking = 10 },
-                new LabUsageStat { NamaLab = "Lab Sistem Informasi", TotalBooking = 5 }
-            };
+                var stats = _repository.GetDashboardStats();
+                TotalLabAktif = stats.totalLab;
+                BookingHariIni = stats.bookingHariIni;
+                MenungguPersetujuan = stats.pendingApproval;
+                TotalPengguna = stats.totalPengguna;
+
+                GrafikPenggunaan.Clear();
+                foreach (var item in _repository.GetGrafikPenggunaan())
+                {
+                    GrafikPenggunaan.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Gagal memuat data dashboard: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
